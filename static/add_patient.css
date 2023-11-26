@@ -1,0 +1,52 @@
+body {
+    background-image: linear-gradient(rgba(4, 9, 30, 0.1), rgba(4, 9, 30, 0.1)), url('https://iuxit.com.au/wp-content/uploads/2023/11/WhatsApp-Image-2023-11-26-at-4.08.50-AM.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; 
+}
+
+h1{
+    margin-bottom: 10px;
+}
+
+input[type='submit']{
+    background-color: rgba(43, 164, 173, 0.882);
+}
+
+/*
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 4px; 
+    position: absolute;
+}*/
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    margin-top: 5px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+} 
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    
+}
+
+input[type='number'],
+select {
+    width: 100%; /* This ensures inputs take up full width of the form */
+    padding: 8px;
+    margin-bottom: 10px; /* Space between fields */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+input[type='submit']:hover{
+    background-color: rgba(43, 164, 173, 0.882);
+}

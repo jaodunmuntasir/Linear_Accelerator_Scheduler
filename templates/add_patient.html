@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Patient</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_patient.css') }}">
+</head>
+<body>
+    <h1>Add a New Patient</h1>
+    <form action="{{ url_for('add_patient') }}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="organ_type">Organ Type:</label>
+        <select id="organ_type" name="organ_type" onchange="updateFractionOptions()" required>
+            <option value="Craniospinal">Craniospinal</option>
+            <option value="Breast">Breast</option>
+            <option value="Breast special">Breast special</option>
+            <option value="Head & neck">Head & neck</option>
+            <option value="Abdomen">Abdomen</option>
+            <option value="Pelvis">Pelvis</option>
+            <option value="Crane">Crane</option>
+            <option value="Lung">Lung</option>
+            <option value="Lung special">Lung special</option>
+            <option value="Whole Brain">Whole Brain</option>
+        </select><br>
+
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" name="weight" step="0.1" required><br>
+
+        <label for="number_of_fractions">Number of Fractions:</label>
+        <select id="number_of_fractions" name="number_of_fractions" required>
+            <!-- Fraction options will be dynamically loaded -->
+        </select><br>
+
+        <label for="patient_type">Patient Type:</label>
+        <select id="patient_type" name="patient_type" required>
+            <option value="indoor">Indoor</option>
+            <option value="outdoor">Outdoor</option>
+        </select><br>
+
+        <label for="treatment_duration">Treatment Duration (minutes):</label>
+        <select id="treatment_duration" name="treatment_duration" required>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+        </select><br>
+
+        <input type="submit" value="Add Patient">
+    </form>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

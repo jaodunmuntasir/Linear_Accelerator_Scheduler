@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- JetBrains Mono Font -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FullCalendar CSS (version 5) -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5/main.min.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+        }
+        #calendar-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="filter-buttons">
+        <button onclick="filterEvents('TB1')">TB1</button>
+        <button onclick="filterEvents('TB2')">TB2</button>
+        <button onclick="filterEvents('VB1')">VB1</button>
+        <button onclick="filterEvents('VB2')">VB2</button>
+        <button onclick="filterEvents('U')">U</button>
+        <button onclick="filterEvents('all')">Show All</button>
+    </div>
+    <div class="container">
+        <div id="calendar-container" class="z-depth-1">
+            <div id='calendar'></div>
+        </div>
+    </div>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5/main.min.js'></script>
+    <script src="{{ url_for('static', filename='calendar.js') }}"></script>
+</body>
+</html>

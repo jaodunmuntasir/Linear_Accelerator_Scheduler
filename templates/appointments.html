@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='appointments.css') }}">
+</head>
+<body>
+    <h1>Appointments</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Date</th>
+                <th>Machine</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.patient.name }}</td>
+                <td>{{ appointment.date.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td>{{ appointment.linear_accelerator.name }}</td>
+                <td>{{ appointment.notes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

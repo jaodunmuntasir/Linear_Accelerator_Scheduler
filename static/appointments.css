@@ -1,0 +1,40 @@
+th {
+    background-color: rgba(43, 164, 173, 0.882);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.1), rgba(4, 9, 30, 0.1)), url('https://iuxit.com.au/wp-content/uploads/2023/11/WhatsApp-Image-2023-11-26-at-4.08.50-AM.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /* Optional: keeps the background image fixed during scroll */
+}
+
+td {
+    background-color: rgba(163, 201, 204, 0.844);
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+h1 {
+    color: #444;
+    text-align: center;
+    padding: 10px;
+}
+
+table {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+th {
+    background-color: rgba(43, 164, 173, 0.882);
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}

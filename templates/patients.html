@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='patients.css') }}">
+</head>
+<body>
+<h1>Patients</h1><br>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Organ Type</th>
+                <th>Weight</th>
+                <th>Number of Fractions</th>
+                <th>Patient Type</th>
+                <th>Treatment Duration</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+            <tr>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.organ_type }}</td>
+                <td>{{ patient.weight }} kg</td>
+                <td>{{ patient.number_of_fractions }}</td>
+                <td>{{ patient.patient_type }}</td>
+                <td>{{ patient.treatment_duration }} minutes</td>
+                <td><a href="{{ url_for('appointments', patient_id=patient.id) }}" class="btn btn-primary">View Appointments</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

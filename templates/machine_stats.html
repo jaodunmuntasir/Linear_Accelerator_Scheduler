@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Machine Usage Statistics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='machine_stats_style.css') }}">
+</head>
+<body>
+    <h1>Machine Usage Statistics</h1>
+
+    <div class="stats-container">
+        <div class="stats-block">
+            <h2>Daily Statistics</h2>
+            <p>Patients Treated: {{ daily_stats.patient_count }}</p>
+            <p>Total Hours: {{ daily_stats.total_hours }}</p>
+        </div>
+
+        <div class="stats-block">
+            <h2>Monthly Statistics</h2>
+            <p>Patients Treated: {{ monthly_stats.patient_count }}</p>
+            <p>Total Hours: {{ monthly_stats.total_hours }}</p>
+        </div>
+
+        <div class="stats-block">
+            <h2>Yearly Statistics</h2>
+            <p>Patients Treated: {{ yearly_stats.patient_count }}</p>
+            <p>Total Hours: {{ yearly_stats.total_hours }}</p>
+        </div>
+    </div>
+</body>
+</html>

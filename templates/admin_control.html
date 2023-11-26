@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Control</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_style.css') }}">
+</head>
+<body>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<form method="post" action="{{ url_for('admin_control') }}">
+    {% for machine in machines %}
+    <div class="machine-settings">
+        <h3>Machine: {{ machine.name }}</h3>
+        <input type="checkbox" name="is_active_{{ machine.id }}" {{ 'checked' if machine.is_active else '' }}> Active
+        <div class="time-settings">
+            <div class="operation-times">
+                Operation Start Time: <input type="time" name="operation_start_time_{{ machine.id }}" value="{{ machine.operation_start_time|timeformat }}"><br>
+                Operation End Time: <input type="time" name="operation_end_time_{{ machine.id }}" value="{{ machine.operation_end_time|timeformat }}"><br>
+            </div>
+
+            <div class="pause-times">
+                Pause Start Time: <input type="datetime-local" name="pause_start_time_{{ machine.id }}" value="{{ machine.pause_start_time|datetimeformat }}"><br>
+                Pause End Time: <input type="datetime-local" name="pause_end_time_{{ machine.id }}" value="{{ machine.pause_end_time|datetimeformat }}"><br>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}<br>
+    <input type="submit" value="Update Settings">
+</form>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Iterate over each 'Active' checkbox
+    document.querySelectorAll('input[type=checkbox]').forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            var machineId = this.name.split('_')[1];
+            var fieldsToToggle = ['operation_start_time_', 'operation_end_time_', 'pause_start_time_', 'pause_end_time_'].map(function(prefix) {
+                return document.querySelector('input[name="' + prefix + machineId + '"]');
+            });
+            // Enable or disable related fields based on checkbox state
+            fieldsToToggle.forEach(function(field) {
+                if (field) {
+                    field.disabled = !checkbox.checked;
+                }
+            });
+        });
+    });
+});
+</script>
+</body>
+</html>
